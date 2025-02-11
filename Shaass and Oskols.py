@@ -1,20 +1,18 @@
 n = int(input())
-ni = [int(i) for i in input().split()]
+a = list(map(int, input().split()))
 m = int(input())
-shots = []
-for i in range(m):
-  shot = [int(i) for i in input().split()]
-  shots.append(shot)
-for x,y in shots:
-  l = y -1
-  r = ni[x-1] -y
-  if x > 1 and x<n:
-    ni[x-2] += l
-    ni[x] += r
-  elif x == 1:
-    ni[x] += r
-  elif x== n:
-    ni[x-2] += l
-  ni[x-1] = 0
-for i in ni:
-  print(i)
+
+for _ in range(m):
+    x, y = map(int, input().split())
+    x -= 1  
+    y -= 1  
+    l = y
+    r = a[x] - y - 1   
+    a[x] = 0   
+    if x > 0:
+        a[x - 1] += l   
+    if x < n - 1:
+        a[x + 1] += r  
+
+for b in a:
+    print(b)
