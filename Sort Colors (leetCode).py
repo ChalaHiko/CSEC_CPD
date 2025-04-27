@@ -4,7 +4,6 @@ class Solution:
         index = 0
         for i in nums:
             new_arr[i] +=1
-
         for color in range(3):
             for i in range(new_arr[color]):
                 nums[index] = color 
